@@ -51,6 +51,7 @@ class _SplashScreenState extends State<SplashScreen> {
               height: 20.0,
             ),
             TextField(
+              obscureText: true,
               decoration: kTextFieldDecoration.copyWith(
                 hintText: 'Enter your password',
                 prefixIcon: const Icon(
