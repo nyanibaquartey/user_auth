@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'constants.dart';
 
 void main() {
   runApp(const LoginApp());
@@ -34,10 +35,30 @@ class _SplashScreenState extends State<SplashScreen> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[],
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            TextField(
+              decoration: kTextFieldDecoration.copyWith(
+                hintText: 'Enter your email',
+                prefixIcon: const Icon(Icons.email),
+              ),
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            TextField(
+              decoration: kTextFieldDecoration.copyWith(
+                hintText: 'Enter your password',
+                prefixIcon: const Icon(
+                  Icons.password,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
