@@ -17,7 +17,7 @@ class _LoginPageState extends State<LoginPage> {
         title: Text(widget.title),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0),
+        padding: const EdgeInsets.symmetric(horizontal: 28.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -40,6 +40,8 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
+            const SizedBox(height: 25.0),
+            ElevatedButton(onPressed: () {}, child: const Text('Log in'))
           ],
         ),
       ),
