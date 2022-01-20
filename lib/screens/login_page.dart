@@ -40,8 +40,24 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            const SizedBox(height: 25.0),
-            ElevatedButton(onPressed: () {}, child: const Text('Log in'))
+            const SizedBox(height: 21.0),
+            SizedBox(
+              height: 50.0,
+              child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    textStyle: const TextStyle(fontSize: 20.0),
+                    elevation: 3.0,
+                    side: const BorderSide(
+                        style: BorderStyle.solid,
+                        color: Colors.blue,
+                        width: 2.0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                  ),
+                  child: const Text('Log in')),
+            )
           ],
         ),
       ),
