@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:login_app/constants.dart';
 
 class LoginPage extends StatefulWidget {
+  static const String id = 'login_page';
   final String title;
   const LoginPage({Key? key, required this.title}) : super(key: key);
 
