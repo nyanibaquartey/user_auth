@@ -22,6 +22,19 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            const Text(
+              'Welcome to Greatly\'s App,',
+              style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            const Text(
+              'Log in to your account with email',
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
             TextField(
               decoration: kTextFieldDecoration.copyWith(
                 hintText: 'Enter your email',
