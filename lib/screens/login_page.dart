@@ -3,8 +3,8 @@ import 'package:login_app/constants.dart';
 
 class LoginPage extends StatefulWidget {
   static const String id = 'login_page';
-  final String title;
-  const LoginPage({Key? key, required this.title}) : super(key: key);
+
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -15,7 +15,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: const Text('Log in'),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 28.0),
