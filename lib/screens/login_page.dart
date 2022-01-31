@@ -24,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
           children: <Widget>[
             const Text(
               'Welcome to Greatly\'s App,',
-              style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold),
             ),
             const SizedBox(
               height: 20.0,
@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
               'Log in to your account with email',
             ),
             const SizedBox(
-              height: 20.0,
+              height: 25.0,
             ),
             TextField(
               decoration: kTextFieldDecoration.copyWith(
@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             const SizedBox(
-              height: 20.0,
+              height: 21.0,
             ),
             TextField(
               obscureText: true,
