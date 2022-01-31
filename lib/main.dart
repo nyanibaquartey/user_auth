@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_app/screens/login_page.dart';
 
 import 'package:login_app/screens/welcome_screen.dart';
 
@@ -16,7 +17,11 @@ class UserAuth extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const WelcomeScreen(),
+      initialRoute: WelcomeScreen.id,
+      routes: {
+        WelcomeScreen.id: (context) => const WelcomeScreen(),
+        LoginPage.id: (context) => const LoginPage(),
+      },
     );
   }
 }
