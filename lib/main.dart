@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:login_app/screens/login_page.dart';
 
 void main() {
-  runApp(const LoginApp());
+  runApp(const UserAuth());
 }
 
-class LoginApp extends StatelessWidget {
-  const LoginApp({Key? key}) : super(key: key);
+class UserAuth extends StatelessWidget {
+  const UserAuth({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
