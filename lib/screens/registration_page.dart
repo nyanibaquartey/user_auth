@@ -29,10 +29,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
               style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold),
             ),
             const SizedBox(
-              height: 20.0,
+              height: 10.0,
             ),
             const Text(
               'Register with email',
+              style: TextStyle(fontSize: 18.0),
             ),
             const SizedBox(
               height: 25.0,
