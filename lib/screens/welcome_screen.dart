@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:login_app/screens/login_page.dart';
 import 'package:login_app/screens/registration_page.dart';
+import 'package:login_app/components/rounded_button.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
@@ -27,47 +28,19 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             const SizedBox(
               height: 20.0,
             ),
-            SizedBox(
-              height: 50.0,
-              child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, RegistrationPage.id);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    textStyle: const TextStyle(fontSize: 20.0),
-                    elevation: 3.0,
-                    side: const BorderSide(
-                        style: BorderStyle.solid,
-                        color: Colors.blue,
-                        width: 2.0),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                  ),
-                  child: const Text('Register')),
-            ),
-            const SizedBox(
-              height: 21.0,
-            ),
-            SizedBox(
-              height: 50.0,
-              child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, LoginPage.id);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    textStyle: const TextStyle(fontSize: 20.0),
-                    elevation: 3.0,
-                    side: const BorderSide(
-                        style: BorderStyle.solid,
-                        color: Colors.blue,
-                        width: 2.0),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                  ),
-                  child: const Text('Log in')),
-            ),
+            RoundedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, RegistrationPage.id);
+                },
+                title: 'Register'),
+            // const SizedBox(
+            // height: 21.0,
+            //),
+            RoundedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, LoginPage.id);
+                },
+                title: 'Log in')
           ],
         ),
       ),

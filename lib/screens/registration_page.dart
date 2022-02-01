@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_app/constants.dart';
+import 'package:login_app/components/rounded_button.dart';
 
 class RegistrationPage extends StatefulWidget {
   static const String id = 'registration_page';
@@ -55,22 +56,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
               ),
             ),
             const SizedBox(height: 21.0),
-            SizedBox(
-              height: 50.0,
-              child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    textStyle: const TextStyle(fontSize: 20.0),
-                    elevation: 3.0,
-                    side: const BorderSide(
-                        style: BorderStyle.solid,
-                        color: Colors.blue,
-                        width: 2.0),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                  ),
-                  child: const Text('Register')),
+            RoundedButton(
+              onPressed: () {},
+              title: 'Register',
             ),
           ],
         ),
