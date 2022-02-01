@@ -12,14 +12,18 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 16.0),
-      child: const Text(
-        'Welcome to Greatlys App',
-        style: TextStyle(
-          fontSize: 30.0,
-          fontWeight: FontWeight.bold,
-          color: Colors.amberAccent,
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Dashboard'),
+      ),
+      body: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 28.0, vertical: 28.0),
+        child: Text(
+          'Welcome to Greatlys App',
+          style: TextStyle(
+            fontSize: 30.0,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );
