@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:login_app/screens/login_page.dart';
 import 'package:login_app/screens/registration_page.dart';
-
 import 'package:login_app/screens/welcome_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+//initialize flutterfire so app can use firebase services
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const UserAuth());
 }
 
