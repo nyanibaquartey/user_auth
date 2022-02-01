@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:login_app/screens/login_page.dart';
 import 'package:login_app/screens/registration_page.dart';
 import 'package:login_app/screens/welcome_screen.dart';
+import 'package:login_app/screens/dashboard.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 //initialize flutterfire so app can use firebase services
@@ -26,6 +27,7 @@ class UserAuth extends StatelessWidget {
         WelcomeScreen.id: (context) => const WelcomeScreen(),
         LoginPage.id: (context) => const LoginPage(),
         RegistrationPage.id: (context) => const RegistrationPage(),
+        Dashboard.id: (context) => const Dashboard(),
       },
     );
   }
