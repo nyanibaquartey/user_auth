@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
 
+  static const String id = 'dashboard';
+
   @override
   _DashboardState createState() => _DashboardState();
 }
