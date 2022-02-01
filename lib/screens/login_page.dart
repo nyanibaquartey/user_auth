@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:login_app/constants.dart';
 import 'package:login_app/components/rounded_button.dart';
+import 'package:login_app/screens/dashboard.dart';
 
 class LoginPage extends StatefulWidget {
   static const String id = 'login_page';
@@ -68,7 +69,9 @@ class _LoginPageState extends State<LoginPage> {
             ),
             // const SizedBox(height: 21.0),
             RoundedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, Dashboard.id);
+              },
               title: 'Log in',
             ),
           ],
