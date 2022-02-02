@@ -23,6 +23,7 @@ class UserAuth extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       initialRoute: WelcomeScreen.id,
+      //named routes
       routes: {
         WelcomeScreen.id: (context) => const WelcomeScreen(),
         LoginPage.id: (context) => const LoginPage(),
