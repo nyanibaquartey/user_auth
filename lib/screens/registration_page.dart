@@ -13,6 +13,7 @@ class RegistrationPage extends StatefulWidget {
 }
 
 class _RegistrationPageState extends State<RegistrationPage> {
+  bool _obscureText = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,6 +55,17 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 hintText: 'Enter your password',
                 prefixIcon: const Icon(
                   Icons.password,
+                ),
+                //toggle password visibility
+                suffixIcon: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _obscureText = !_obscureText;
+                    });
+                  },
+                  child: Icon(
+                    _obscureText ? Icons.visibility_off : Icons.visibility,
+                  ),
                 ),
               ),
             ),

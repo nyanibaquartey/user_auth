@@ -14,6 +14,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
+  bool _obscureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -53,11 +54,22 @@ class _LoginPageState extends State<LoginPage> {
                 height: 21.0,
               ),
               TextFormField(
-                obscureText: true,
+                obscureText: _obscureText,
                 decoration: kTextFieldDecoration.copyWith(
                   hintText: 'Enter your password',
                   prefixIcon: const Icon(
                     Icons.password,
+                  ),
+                  //toggle password visibility
+                  suffixIcon: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _obscureText = !_obscureText;
+                      });
+                    },
+                    child: Icon(
+                      _obscureText ? Icons.visibility_off : Icons.visibility,
+                    ),
                   ),
                 ),
               ),
