@@ -43,7 +43,10 @@ class _RegistrationPageState extends State<RegistrationPage> {
               const SizedBox(
                 height: 25.0,
               ),
-              TextField(
+              TextFormField(
+                //email must contain "@"
+                validator: (value) =>
+                    !value!.contains('@') ? "Invalid Email" : null,
                 decoration: kTextFieldDecoration.copyWith(
                   hintText: 'Enter your email',
                   prefixIcon: const Icon(Icons.email),
@@ -52,7 +55,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
               const SizedBox(
                 height: 21.0,
               ),
-              TextField(
+              TextFormField(
+                //password must be more than 6 characters
+                validator: (value) => value!.length < 6
+                    ? "Password must be above 6 characters"
+                    : null,
                 obscureText: true,
                 decoration: kTextFieldDecoration.copyWith(
                   hintText: 'Enter your password',
