@@ -5,8 +5,10 @@ class Authentication {
 
   Authentication(this._firebaseAuth);
 
+//manage user state
   Stream<User?> get authStateChanges => _firebaseAuth.idTokenChanges();
 
+//Log in user
   Future<String> logIn(
       {required String email, required String password}) async {
     try {
@@ -14,7 +16,13 @@ class Authentication {
           email: email, password: password);
       return 'Log in successful';
     } on FirebaseAuthException catch (e) {
-      return e.message.toString();
+      if (e.code == 'user-not-found') {
+        return "No user found for that email.";
+      } else if (e.code == 'wrong-password') {
+        return "Wrong password provided for that user.";
+      } else {
+        return "Something Went Wrong.";
+      }
     }
   }
 
@@ -25,7 +33,18 @@ class Authentication {
           email: email, password: password);
       return 'Registered succesfully';
     } on FirebaseAuthException catch (e) {
-      return e.message.toString();
+      if (e.code == 'weak-password') {
+        return "The password provided is too weak.";
+      } else if (e.code == 'email-already-in-use') {
+        return "The account already exists for that email.";
+      } else {
+        return "Something Went Wrong.";
+      }
     }
+  }
+
+  //sign out
+  Future<void> signOut() async {
+    await _firebaseAuth.signOut();
   }
 }
