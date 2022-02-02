@@ -54,7 +54,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
               decoration: kTextFieldDecoration.copyWith(
                 hintText: 'Enter your password',
                 prefixIcon: const Icon(
-                  Icons.password,
+                  Icons.lock,
                 ),
                 //toggle password visibility
                 suffixIcon: GestureDetector(
