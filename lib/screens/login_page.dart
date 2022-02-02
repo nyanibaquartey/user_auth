@@ -45,6 +45,9 @@ class _LoginPageState extends State<LoginPage> {
                 height: 25.0,
               ),
               TextFormField(
+                //email address must contain "@" sign
+                validator: (value) =>
+                    !value!.contains('@') ? "Invalid Email" : null,
                 decoration: kTextFieldDecoration.copyWith(
                   hintText: 'Enter your email',
                   prefixIcon: const Icon(Icons.email),
@@ -54,6 +57,10 @@ class _LoginPageState extends State<LoginPage> {
                 height: 21.0,
               ),
               TextFormField(
+                //password must be more than 6 characters
+                validator: (value) => value!.length < 6
+                    ? "Password  must be above 6 characters"
+                    : null,
                 obscureText: _obscureText,
                 decoration: kTextFieldDecoration.copyWith(
                   hintText: 'Enter your password',
