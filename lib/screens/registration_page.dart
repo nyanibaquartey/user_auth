@@ -15,6 +15,8 @@ class RegistrationPage extends StatefulWidget {
 class _RegistrationPageState extends State<RegistrationPage> {
   final _formKey = GlobalKey<FormState>();
   bool _obscureText = true;
+  String? email;
+  String? password;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,6 +46,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 height: 25.0,
               ),
               TextFormField(
+                onChanged: (value) => email = value,
                 //email must contain "@"
                 validator: (value) =>
                     !value!.contains('@') ? "Invalid Email" : null,
@@ -56,6 +59,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 height: 21.0,
               ),
               TextFormField(
+                onChanged: (value) => password = value,
                 //password must be more than 6 characters
                 validator: (value) => value!.length < 6
                     ? "Password must be above 6 characters"
@@ -83,6 +87,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
               RoundedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, Dashboard.id);
+                  //print(email);
+                  //print(password);
                 },
                 title: 'Register',
               ),
