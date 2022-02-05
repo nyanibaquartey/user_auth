@@ -89,7 +89,10 @@ class _RegistrationPageState extends State<RegistrationPage> {
               ),
               const SizedBox(height: 21.0),
               RoundedButton(
-                onPressed: () {
+                onPressed: () async {
+                  await authService.register(
+                      email: emailController.text,
+                      password: passwordController.text);
                   Navigator.pushNamed(context, Dashboard.id);
                   //print(email);
                   //print(password);
