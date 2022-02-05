@@ -7,6 +7,7 @@ import 'package:login_app/screens/dashboard.dart';
 
 class Wrapper extends StatelessWidget {
   const Wrapper({Key? key}) : super(key: key);
+  static const String id = 'wrapper';
 
   @override
   Widget build(BuildContext context) {
