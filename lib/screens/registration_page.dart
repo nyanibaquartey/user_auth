@@ -68,7 +68,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 validator: (value) => value!.length < 6
                     ? "Password must be above 6 characters"
                     : null,
-                obscureText: true,
+                obscureText: _obscureText,
                 decoration: kTextFieldDecoration.copyWith(
                   hintText: 'Enter your password',
                   prefixIcon: const Icon(
@@ -93,7 +93,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   await authService.register(
                       email: emailController.text,
                       password: passwordController.text);
-                  Navigator.pushNamed(context, Dashboard.id);
+                  // Navigator.pushNamed(context, Dashboard.id);
                   //print(email);
                   //print(password);
                 },
