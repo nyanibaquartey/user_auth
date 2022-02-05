@@ -1,6 +1,6 @@
 class AppUser {
   final String uid;
-  final String email;
+  final String? email;
 
   AppUser({required this.uid, required this.email});
 }
