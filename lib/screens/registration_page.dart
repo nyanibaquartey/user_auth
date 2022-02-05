@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:login_app/constants.dart';
 import 'package:login_app/components/rounded_button.dart';
 import 'package:login_app/screens/dashboard.dart';
+import 'package:login_app/services/auth_service.dart';
+import 'package:provider/provider.dart';
 
 class RegistrationPage extends StatefulWidget {
   static const String id = 'registration_page';
@@ -15,10 +17,12 @@ class RegistrationPage extends StatefulWidget {
 class _RegistrationPageState extends State<RegistrationPage> {
   final _formKey = GlobalKey<FormState>();
   bool _obscureText = true;
-  String? email;
-  String? password;
+
   @override
   Widget build(BuildContext context) {
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+    final authService = Provider.of<Authentication>(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Register'),
@@ -46,7 +50,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 height: 25.0,
               ),
               TextFormField(
-                onChanged: (value) => email = value,
+                // onChanged: (value) => email = value,
                 //email must contain "@"
                 validator: (value) =>
                     !value!.contains('@') ? "Invalid Email" : null,
@@ -59,7 +63,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 height: 21.0,
               ),
               TextFormField(
-                onChanged: (value) => password = value,
+                // onChanged: (value) => password = value,
                 //password must be more than 6 characters
                 validator: (value) => value!.length < 6
                     ? "Password must be above 6 characters"
