@@ -4,6 +4,9 @@ import 'package:login_app/screens/registration_page.dart';
 import 'package:login_app/screens/welcome_screen.dart';
 import 'package:login_app/screens/dashboard.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
+import 'package:login_app/services/auth_service.dart';
+import 'package:login_app/auth_wrapper.dart';
 
 //initialize flutterfire so app can use firebase services
 Future<void> main() async {
@@ -17,19 +20,26 @@ class UserAuth extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'User Authentication Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return MultiProvider(
+      providers: [
+        Provider<Authentication>(
+          create: (_) => Authentication(),
+        )
+      ],
+      child: MaterialApp(
+        title: 'User Authentication Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        initialRoute: Wrapper.id,
+        //named routes
+        routes: {
+          Wrapper.id: (context) => const Wrapper(),
+          LoginPage.id: (context) => const LoginPage(),
+          RegistrationPage.id: (context) => const RegistrationPage(),
+          Dashboard.id: (context) => const Dashboard(),
+        },
       ),
-      initialRoute: WelcomeScreen.id,
-      //named routes
-      routes: {
-        WelcomeScreen.id: (context) => const WelcomeScreen(),
-        LoginPage.id: (context) => const LoginPage(),
-        RegistrationPage.id: (context) => const RegistrationPage(),
-        Dashboard.id: (context) => const Dashboard(),
-      },
     );
   }
 }
