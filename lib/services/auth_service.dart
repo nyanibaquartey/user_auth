@@ -1,12 +1,23 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:login_app/user_model.dart';
 
 class Authentication {
   final FirebaseAuth _firebaseAuth;
 
   Authentication(this._firebaseAuth);
 
-//manage user state
-  Stream<User?> get authStateChanges => _firebaseAuth.idTokenChanges();
+//map user data from firebase to appuser class
+  AppUser? _userFromFirebase(User? user) {
+    if (user == null) {
+      return null;
+    }
+    return AppUser(uid: user.uid, email: user.email);
+  }
+
+//manage user state and get a stream of users
+  Stream<AppUser?>? get user {
+    return _firebaseAuth.authStateChanges().map(_userFromFirebase);
+  }
 
 //Log in user
   Future<String> logIn(
