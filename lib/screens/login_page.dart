@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:login_app/constants.dart';
 import 'package:login_app/components/rounded_button.dart';
 import 'package:login_app/screens/dashboard.dart';
+import 'package:login_app/services/auth_service.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
   static const String id = 'login_page';
@@ -18,6 +20,9 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+    final authService = Provider.of<Authentication>(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Log in'),
@@ -93,6 +98,10 @@ class _LoginPageState extends State<LoginPage> {
               // const SizedBox(height: 21.0),
               RoundedButton(
                 onPressed: () {
+                  authService.logIn(
+                      email: emailController.text,
+                      password: passwordController.text);
+
                   Navigator.pushNamed(context, Dashboard.id);
                 },
                 title: 'Log in',
