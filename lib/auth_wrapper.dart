@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_app/screens/welcome_screen.dart';
 import 'package:login_app/services/auth_service.dart';
 import 'package:login_app/user_model.dart';
 import 'package:provider/provider.dart';
@@ -18,7 +19,7 @@ class Wrapper extends StatelessWidget {
       builder: (_, AsyncSnapshot<AppUser?> snapshot) {
         if (snapshot.connectionState == ConnectionState.active) {
           AppUser? user = snapshot.data;
-          return user == null ? const LoginPage() : const Dashboard();
+          return user == null ? const WelcomeScreen() : const Dashboard();
         } else {
           return const Scaffold(
             body: Center(
