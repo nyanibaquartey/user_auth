@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_app/constants.dart';
 import 'package:login_app/components/rounded_button.dart';
-import 'package:login_app/screens/dashboard.dart';
-import 'package:login_app/services/auth_service.dart';
-import 'package:provider/provider.dart';
 
 class RegistrationPage extends StatefulWidget {
   static const String id = 'registration_page';
@@ -90,10 +87,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
               const SizedBox(height: 21.0),
               RoundedButton(
                 onPressed: () {
-                  
                   // Navigator.pushNamed(context, Dashboard.id);
-                  print();
-                  print();
                 },
                 title: 'Register',
               ),
