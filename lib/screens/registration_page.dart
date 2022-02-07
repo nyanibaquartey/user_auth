@@ -17,12 +17,12 @@ class RegistrationPage extends StatefulWidget {
 class _RegistrationPageState extends State<RegistrationPage> {
   final _formKey = GlobalKey<FormState>();
   bool _obscureText = true;
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController emailController = TextEditingController();
-    final TextEditingController passwordController = TextEditingController();
-    final authService = Provider.of<Authentication>(context);
+    // final authService = Provider.of<Authentication>(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Register'),
@@ -89,13 +89,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
               ),
               const SizedBox(height: 21.0),
               RoundedButton(
-                onPressed: () async {
-                  await authService.register(
-                      email: emailController.text,
-                      password: passwordController.text);
+                onPressed: () {
+                  
                   // Navigator.pushNamed(context, Dashboard.id);
-                  //print(email);
-                  //print(password);
+                  print();
+                  print();
                 },
                 title: 'Register',
               ),
