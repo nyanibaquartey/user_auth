@@ -6,7 +6,6 @@ import 'package:login_app/screens/dashboard.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import 'package:login_app/services/auth_service.dart';
-import 'package:login_app/auth_wrapper.dart';
 
 //initialize flutterfire so app can use firebase services
 Future<void> main() async {
@@ -31,10 +30,10 @@ class UserAuth extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: Wrapper.id,
+        initialRoute: WelcomeScreen.id,
         //named routes
         routes: {
-          Wrapper.id: (context) => const Wrapper(),
+          WelcomeScreen.id: (context) => const WelcomeScreen(),
           LoginPage.id: (context) => const LoginPage(),
           RegistrationPage.id: (context) => const RegistrationPage(),
           Dashboard.id: (context) => const Dashboard(),
