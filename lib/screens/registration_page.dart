@@ -50,7 +50,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 height: 25.0,
               ),
               TextFormField(
-                // onChanged: (value) => email = value,
+                onChanged: (value) => email = value,
                 //email must contain "@"
                 validator: (value) =>
                     !value!.contains('@') ? "Invalid Email" : null,
@@ -63,7 +63,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 height: 21.0,
               ),
               TextFormField(
-                // onChanged: (value) => password = value,
+                onChanged: (value) => password = value,
                 //password must be more than 6 characters
                 validator: (value) => value!.length < 6
                     ? "Password must be above 6 characters"
