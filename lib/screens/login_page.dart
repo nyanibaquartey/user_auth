@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:login_app/constants.dart';
 import 'package:login_app/components/rounded_button.dart';
 import 'package:login_app/screens/dashboard.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginPage extends StatefulWidget {
   static const String id = 'login_page';
@@ -15,6 +16,8 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   bool _obscureText = true;
+  late String email;
+  late String password;
 
   @override
   Widget build(BuildContext context) {
@@ -92,8 +95,18 @@ class _LoginPageState extends State<LoginPage> {
               ),
               // const SizedBox(height: 21.0),
               RoundedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, Dashboard.id);
+                onPressed: () async {
+                  try {
+                    UserCredential userCredential = await FirebaseAuth.instance
+                        .signInWithEmailAndPassword(
+                            email: email, password: password);
+                  } on FirebaseAuthException catch (e) {
+                    if (e.code == 'user-not-found') {
+                      print('No user found for that email.');
+                    } else if (e.code == 'wrong-password') {
+                      print('Wrong password provided for that user.');
+                    }
+                  }
                 },
                 title: 'Log in',
               ),
