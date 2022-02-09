@@ -107,9 +107,36 @@ class _LoginPageState extends State<LoginPage> {
                     Navigator.pushNamed(context, Dashboard.id);
                   } on FirebaseAuthException catch (e) {
                     if (e.code == 'user-not-found') {
-                      print('No user found for that email.');
+                      return showDialog(
+                        context: context,
+                        builder: (BuildContext context) => AlertDialog(
+                          title: const Text('User Not Found'),
+                          content: const Text('No user found for that email'),
+                          actions: [
+                            TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: const Text('Okay'))
+                          ],
+                        ),
+                      );
                     } else if (e.code == 'wrong-password') {
-                      print('Wrong password provided for that user.');
+                      return showDialog(
+                        context: context,
+                        builder: (BuildContext context) => AlertDialog(
+                          title: const Text('Wrong Password'),
+                          content: const Text(
+                              'Wrong password provided for that user'),
+                          actions: [
+                            TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: const Text('Retry'))
+                          ],
+                        ),
+                      );
                     }
                   }
                 },
