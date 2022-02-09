@@ -96,14 +96,51 @@ class _RegistrationPageState extends State<RegistrationPage> {
                             email: email, password: password);
                   } on FirebaseAuthException catch (e) {
                     if (e.code == 'weak-password') {
-                      print('The password provided is too weak.');
+                      //print('The password provided is too weak.');
+                      return showDialog(
+                          context: context,
+                          builder: (BuildContext context) => AlertDialog(
+                                title: const Text('Weak Password'),
+                                content:
+                                    const Text('The password provided is weak'),
+                                actions: [
+                                  TextButton(
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                      child: const Text('Retry'))
+                                ],
+                              ));
                     } else if (e.code == 'email-already-in-use') {
-                      print('The account already exists for that email.');
+                      // print('The account already exists for that email.');
+                      return AlertDialog(
+                        title: const Text('Email Already Exists'),
+                        content:
+                            const Text('The email provided is already in use'),
+                        actions: [
+                          TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: const Text('Dismiss'))
+                        ],
+                      );
                     }
                   } catch (e) {
-                    print(e);
+                    // print(e);
+                    return AlertDialog(
+                      title: const Text('Error'),
+                      content: Text(e.toString()),
+                      actions: [
+                        TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: const Text('Ok'))
+                      ],
+                    );
                   }
-                  // Navigator.pushNamed(context, Dashboard.id);
+                  //Navigator.pushNamed(context, Dashboard.id);
                 },
                 title: 'Register',
               ),
