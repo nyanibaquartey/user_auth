@@ -18,6 +18,7 @@ class _LoginPageState extends State<LoginPage> {
   bool _obscureText = true;
   late String email;
   late String password;
+  Stream<User?> user = FirebaseAuth.instance.authStateChanges();
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 21.0,
               ),
               TextFormField(
-                onChanged:(value) => password = value,
+                onChanged: (value) => password = value,
                 //password must be more than 6 characters
                 validator: (value) => value!.length < 6
                     ? "Password  must be above 6 characters"
@@ -102,6 +103,8 @@ class _LoginPageState extends State<LoginPage> {
                     UserCredential userCredential = await FirebaseAuth.instance
                         .signInWithEmailAndPassword(
                             email: email, password: password);
+
+                    Navigator.pushNamed(context, Dashboard.id);
                   } on FirebaseAuthException catch (e) {
                     if (e.code == 'user-not-found') {
                       print('No user found for that email.');
