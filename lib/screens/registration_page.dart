@@ -98,7 +98,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     Navigator.pushNamed(context, Dashboard.id);
                   } on FirebaseAuthException catch (e) {
                     if (e.code == 'weak-password') {
-                      //print('The password provided is too weak.');
                       return showDialog(
                           context: context,
                           builder: (BuildContext context) => AlertDialog(
@@ -114,7 +113,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 ],
                               ));
                     } else if (e.code == 'email-already-in-use') {
-                      // print('The account already exists for that email.');
                       return AlertDialog(
                         title: const Text('Email Already Exists'),
                         content:
@@ -129,7 +127,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       );
                     }
                   } catch (e) {
-                    // print(e);
                     return AlertDialog(
                       title: const Text('Error'),
                       content: Text(e.toString()),
