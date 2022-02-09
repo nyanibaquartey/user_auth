@@ -48,6 +48,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 25.0,
               ),
               TextFormField(
+                onChanged: (value) => email = value,
                 //email address must contain "@" sign
                 validator: (value) =>
                     !value!.contains('@') ? "Invalid Email" : null,
@@ -60,6 +61,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 21.0,
               ),
               TextFormField(
+                onChanged:(value) => password = value,
                 //password must be more than 6 characters
                 validator: (value) => value!.length < 6
                     ? "Password  must be above 6 characters"
