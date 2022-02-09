@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:login_app/constants.dart';
 import 'package:login_app/components/rounded_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:login_app/screens/dashboard.dart';
 
 class RegistrationPage extends StatefulWidget {
   static const String id = 'registration_page';
@@ -94,6 +95,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     UserCredential userCredential = await FirebaseAuth.instance
                         .createUserWithEmailAndPassword(
                             email: email, password: password);
+                    Navigator.pushNamed(context, Dashboard.id);
                   } on FirebaseAuthException catch (e) {
                     if (e.code == 'weak-password') {
                       //print('The password provided is too weak.');
@@ -140,7 +142,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       ],
                     );
                   }
-                  //Navigator.pushNamed(context, Dashboard.id);
                 },
                 title: 'Register',
               ),
