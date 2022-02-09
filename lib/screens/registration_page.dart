@@ -113,30 +113,36 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 ],
                               ));
                     } else if (e.code == 'email-already-in-use') {
-                      return AlertDialog(
-                        title: const Text('Email Already Exists'),
-                        content:
-                            const Text('The email provided is already in use'),
+                      return showDialog(
+                        context: context,
+                        builder: (BuildContext context) => AlertDialog(
+                          title: const Text('Email Already Exists'),
+                          content: const Text(
+                              'The email provided is already in use'),
+                          actions: [
+                            TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: const Text('Dismiss'))
+                          ],
+                        ),
+                      );
+                    }
+                  } catch (e) {
+                    return showDialog(
+                      context: context,
+                      builder: (BuildContext context) => AlertDialog(
+                        title: const Text('Error'),
+                        content: Text(e.toString()),
                         actions: [
                           TextButton(
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              child: const Text('Dismiss'))
+                              child: const Text('Ok'))
                         ],
-                      );
-                    }
-                  } catch (e) {
-                    return AlertDialog(
-                      title: const Text('Error'),
-                      content: Text(e.toString()),
-                      actions: [
-                        TextButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: const Text('Ok'))
-                      ],
+                      ),
                     );
                   }
                 },
