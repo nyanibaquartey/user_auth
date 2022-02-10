@@ -16,14 +16,20 @@ class _DashboardState extends State<Dashboard> {
       appBar: AppBar(
         title: const Text('Dashboard'),
       ),
-      body: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 28.0, vertical: 28.0),
-        child: Text(
-          'Welcome to Greatlys App',
-          style: TextStyle(
-            fontSize: 30.0,
-            fontWeight: FontWeight.bold,
-          ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 28.0, vertical: 28.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: const [
+            Text(
+              'Welcome to Greatlys App',
+              style: TextStyle(
+                fontSize: 30.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
         ),
       ),
     );
