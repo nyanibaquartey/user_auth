@@ -51,6 +51,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 25.0,
               ),
               TextFormField(
+                controller: emailController,
                 onChanged: (value) => email = value,
                 //email address must contain "@" sign
                 validator: (value) =>
@@ -64,6 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 21.0,
               ),
               TextFormField(
+                controller: passwordController,
                 onChanged: (value) => password = value,
                 //password must be more than 6 characters
                 validator: (value) => value!.length < 6
