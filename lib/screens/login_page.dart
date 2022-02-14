@@ -109,6 +109,8 @@ class _LoginPageState extends State<LoginPage> {
                             email: email, password: password);
 
                     Navigator.pushNamed(context, Dashboard.id);
+                    emailController.clear();
+                    passwordController.clear();
                   } on FirebaseAuthException catch (e) {
                     if (e.code == 'user-not-found') {
                       return showDialog(
