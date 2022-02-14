@@ -18,6 +18,8 @@ class _LoginPageState extends State<LoginPage> {
   bool _obscureText = true;
   late String email;
   late String password;
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
   Stream<User?> user = FirebaseAuth.instance.authStateChanges();
 
   @override
