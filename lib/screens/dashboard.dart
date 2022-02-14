@@ -36,6 +36,7 @@ class _DashboardState extends State<Dashboard> {
               title: 'Sign out',
               onPressed: () async {
                 await FirebaseAuth.instance.signOut();
+                Navigator.of(context).pop();
               },
             ),
           ],
